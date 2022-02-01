@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Window Frames</title>
+</head>
+<body>
+<h3>Window Frames</h3>
+    
+<div class="wfFrame frameOne">
+    <div class="wfheader">
+        <div class="title">Window 1</div>
+        <div class="ctrls">&#128469; &#9634; &#x2715;</div>
+    </div>
+</div>
+
+<div class="wfFrame frameTwo">
+    <div class="wfheader">
+        <div class="title">Window 2</div>
+        <div class="ctrls">&#128469; &#9634; &#x2715;</div>
+    </div>
+</div>
+
+<style>
+    .wfFrame, .wfFrame .wfheader, .wfFrame .wfheader .ctrls, .wfFrame .wfheader .title
+    {
+        padding: 0; margin: 0;
+        line-height: 100%;
+    }
+    .wfFrame
+    {
+        position: absolute;
+        z-index: 9;
+        border: 1px solid #000;
+        background-color: #fff;
+        min-width: 8rem;
+        min-height: 8rem;
+    }
+    .wfFrame .wfheader
+    {
+        border-bottom: 1px solid #000;
+        width: 100%;
+    }
+    .wfFrame .wfheader .title, .wfFrame .wfheader .ctrls
+    {
+        display:inline-block;
+        position: relative;
+    }
+    .wfFrame .wfheader .title
+    {
+        width: 55%;
+        /* background-color: red; */
+        cursor: move;
+    }
+    .wfFrame .wfheader .ctrls
+    {
+        text-align: end;
+        width: 40%;
+        /* background-color: blue; */
+        cursor: pointer;
+    }
+</style>
+
+<script>
+
+let frames = document.querySelectorAll('.wfFrame');
+let framesArr = [];
+
+for(let i = 0; i < frames.length; i++)
+{
+    framesArr.push(frames[i]);
+}
+
+function resize(e, el)
+{
+    console.log(e);
+    // movementX
+    // movementY
+
+    const dx = m_posX - e.x;
+    const dy = m_posY + e.y;
+    
+    el.style.width = (parseInt(getComputedStyle(el, '').width) + dx) + "px";
+    el.style.height = (parseInt(getComputedStyle(el, '').height) + dy) + "px";
+}
+
+for(let x = 0; x < framesArr.length; x++)
+{
+    let el = framesArr[x];
+    
+    const borderWidth = 2;
+    el.style.borderWidth = "" + borderWidth + "px";
+
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+    el.querySelector('.wfheader .title').addEventListener('mousedown', function(e) 
+    { 
+        dragFrameMouseDown(e, el);
+    }, false);
+
+    el.addEventListener('mousedown', function(e) 
+    { 
+        //borderWidth
+        if (e.offsetX < borderWidth || e.offsetY < borderWidth) 
+        {
+            m_posX = e.x;
+            m_posY = e.y;
+            let mousemove = function(e) { resize(e, el); };
+            document.addEventListener("mousemove", mousemove, false);
+
+            document.addEventListener("mouseup", function()
+            {
+                document.removeEventListener("mousemove", mousemove);
+            }, false);
+        }
+    }, false);
+}
+
+function dragFrameMouseDown(e, el)
+{
+    e = e || window.event;
+    e.preventDefault();
+
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = function(e){ dragFrame(e, el) }.bind(this);
+}
+
+function dragFrame(e, el)
+{
+    e = e || window.event;
+    e.preventDefault();
+
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    el.style.top = (el.offsetTop - pos2) + "px";
+    el.style.left = (el.offsetLeft - pos1) + "px";
+}
+
+function closeDragElement() 
+{
+    document.onmouseup = null;
+    document.onmousemove = null;
+}
+
+</script>
+
+</body>
+</html>
