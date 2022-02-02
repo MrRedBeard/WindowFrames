@@ -1,152 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Window Frames</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<h3>Window Frames</h3>
-    
-<div class="wfFrame frameOne">
-    <div class="wfheader">
-        <div class="title">Window 1</div>
-        <div class="ctrls">&#128469; &#9634; &#x2715;</div>
+<body class="d-flex flex-column h-100 bg-dark">
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+          <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <strong>Window Frames</strong>
+            </a>
+            <div class="dropdown text-end">
+                <a draggable="false" href="#" class="d-block link-light text-decoration-none show" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
+                    <span>&#9703;</span>
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" data-popper-placement="bottom-end" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(-110px, 34px);">
+                  <li><span class="dropdown-item"><img class="btn img-fluid FrameLayoutSingleBtn" src="./img/FrameLayoutSingle.png"></span></li>
+                  <li><span class="dropdown-item"><img class="btn img-fluid FrameLayoutDoubleBtn" src="./img/FrameLayoutDouble.png"></span></li>
+                  <li><span class="dropdown-item"><img class="btn img-fluid FrameLayoutTrippleBtn" src="./img/FrameLayoutTripple.png"></span></li>
+                  <li><span class="dropdown-item"><img class="btn img-fluid FrameLayoutQuadBtn" src="./img/FrameLayoutQuad.png"></span></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </header>
+
+    <div class="container-fluid h-100 d-none FrameLayoutQuad">
+        <div class="row h-50">
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+        </div>
+        <div class="row h-50">
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+        </div>
+    </div>    
+    <div class="container-fluid h-100 d-none FrameLayoutTripple">
+        <div class="row h-50">
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+        </div>
+        <div class="row h-50">
+            <div class="col-12 pane m-0 p-0 border border-white border-2"></div>
+        </div>
     </div>
-</div>
-
-<div class="wfFrame frameTwo">
-    <div class="wfheader">
-        <div class="title">Window 2</div>
-        <div class="ctrls">&#128469; &#9634; &#x2715;</div>
+    <div class="container-fluid h-100 FrameLayoutSingle">
+        <div class="row h-100">
+            <div class="col-12 pane m-0 p-0 border border-white border-2"></div>
+        </div>
     </div>
-</div>
+    <div class="container-fluid h-100 d-none FrameLayoutDouble">
+        <div class="row h-100">
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+            <div class="col-6 pane m-0 p-0 border border-white border-2"></div>
+        </div>
+    </div>
 
-<style>
-    .wfFrame, .wfFrame .wfheader, .wfFrame .wfheader .ctrls, .wfFrame .wfheader .title
-    {
-        padding: 0; margin: 0;
-        line-height: 100%;
-    }
-    .wfFrame
-    {
-        position: absolute;
-        z-index: 9;
-        border: 1px solid #000;
-        background-color: #fff;
-        min-width: 8rem;
-        min-height: 8rem;
-    }
-    .wfFrame .wfheader
-    {
-        border-bottom: 1px solid #000;
-        width: 100%;
-    }
-    .wfFrame .wfheader .title, .wfFrame .wfheader .ctrls
-    {
-        display:inline-block;
-        position: relative;
-    }
-    .wfFrame .wfheader .title
-    {
-        width: 55%;
-        /* background-color: red; */
-        cursor: move;
-    }
-    .wfFrame .wfheader .ctrls
-    {
-        text-align: end;
-        width: 40%;
-        /* background-color: blue; */
-        cursor: pointer;
-    }
-</style>
+    <footer class="footer mt-auto py-3 bg-light" style="height: 15%;">
+        <div class="container h-100 text-center">
+            <div class="row h-100" style="min-width: 100%; overflow-x: auto;">
+                <div draggable="true" class="col-1 ms-2 border border-dark border-1 align-text-bottom text-center open-app" style="width: 10%; height: 95%;">
+                    Icon
+                    <div class="content bg-light border border-2 border-dark d-none w-100 h-100">Content 1</div>
+                </div>
+                <div draggable="true" class="col-1 ms-2 border border-dark border-1 align-text-bottom text-center open-app" style="width: 10%; height: 95%;">
+                    Icon
+                    <div class="content bg-light border border-2 border-dark d-none w-100 h-100">Content 2</div>
+                </div>
+                <div draggable="true" class="col-1 ms-2 border border-dark border-1 align-text-bottom text-center open-app" style="width: 10%; height: 95%;">
+                    Icon
+                    <div class="content bg-light border border-2 border-dark d-none w-100 h-100">Content 3</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script>
+    <script src="./js/bootstrap-native.js"></script>
 
-let frames = document.querySelectorAll('.wfFrame');
-let framesArr = [];
-
-for(let i = 0; i < frames.length; i++)
-{
-    framesArr.push(frames[i]);
-}
-
-function resize(e, el)
-{
-    console.log(e);
-    // movementX
-    // movementY
-
-    const dx = m_posX - e.x;
-    const dy = m_posY + e.y;
-    
-    el.style.width = (parseInt(getComputedStyle(el, '').width) + dx) + "px";
-    el.style.height = (parseInt(getComputedStyle(el, '').height) + dy) + "px";
-}
-
-for(let x = 0; x < framesArr.length; x++)
-{
-    let el = framesArr[x];
-    
-    const borderWidth = 2;
-    el.style.borderWidth = "" + borderWidth + "px";
-
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-    el.querySelector('.wfheader .title').addEventListener('mousedown', function(e) 
-    { 
-        dragFrameMouseDown(e, el);
-    }, false);
-
-    el.addEventListener('mousedown', function(e) 
-    { 
-        //borderWidth
-        if (e.offsetX < borderWidth || e.offsetY < borderWidth) 
+    <style>
+        [draggable=true] 
         {
-            m_posX = e.x;
-            m_posY = e.y;
-            let mousemove = function(e) { resize(e, el); };
-            document.addEventListener("mousemove", mousemove, false);
-
-            document.addEventListener("mouseup", function()
-            {
-                document.removeEventListener("mousemove", mousemove);
-            }, false);
+            cursor: move !important;
         }
-    }, false);
-}
+        .open-app
+        {
+            user-select: none;
+            cursor: move;
+        }
 
-function dragFrameMouseDown(e, el)
-{
-    e = e || window.event;
-    e.preventDefault();
+        .pane .content
+        {
+            z-index: 400;
+            background-color: #fff;
+        }
+    </style>
 
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = function(e){ dragFrame(e, el) }.bind(this);
-}
+    <script>
+        let openApps = document.querySelectorAll('.open-app');
 
-function dragFrame(e, el)
-{
-    e = e || window.event;
-    e.preventDefault();
+        let draggedElement; //Element being dragged to layout
 
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    el.style.top = (el.offsetTop - pos2) + "px";
-    el.style.left = (el.offsetLeft - pos1) + "px";
-}
+        let framePositionBlock = document.querySelector('.frame-position-block');
 
-function closeDragElement() 
-{
-    document.onmouseup = null;
-    document.onmousemove = null;
-}
+        let FrameLayoutSingleEl = document.querySelector('.FrameLayoutSingle');
+        let FrameLayoutDoubleEl = document.querySelector('.FrameLayoutDouble');
+        let FrameLayoutTrippleEl = document.querySelector('.FrameLayoutTripple');
+        let FrameLayoutQuadEl = document.querySelector('.FrameLayoutQuad');
 
-</script>
+        let FrameLayoutSingleBtn = document.querySelector('.FrameLayoutSingleBtn');
+        let FrameLayoutDoubleBtn = document.querySelector('.FrameLayoutDoubleBtn');
+        let FrameLayoutTrippleBtn = document.querySelector('.FrameLayoutTrippleBtn');
+        let FrameLayoutQuadBtn = document.querySelector('.FrameLayoutQuadBtn');
+
+        FrameLayoutSingleBtn.addEventListener('click', function()
+        {
+            FrameLayoutSingleEl.classList.remove('d-none');
+            FrameLayoutDoubleEl.classList.add('d-none');
+            FrameLayoutTrippleEl.classList.add('d-none');
+            FrameLayoutQuadEl.classList.add('d-none');
+        })
+        FrameLayoutDoubleBtn.addEventListener('click', function()
+        {
+            FrameLayoutSingleEl.classList.add('d-none');
+            FrameLayoutDoubleEl.classList.remove('d-none');
+            FrameLayoutTrippleEl.classList.add('d-none');
+            FrameLayoutQuadEl.classList.add('d-none');
+        })
+        FrameLayoutTrippleBtn.addEventListener('click', function()
+        {
+            FrameLayoutSingleEl.classList.add('d-none');
+            FrameLayoutDoubleEl.classList.add('d-none');
+            FrameLayoutTrippleEl.classList.remove('d-none');
+            FrameLayoutQuadEl.classList.add('d-none');
+        })
+        FrameLayoutQuadBtn.addEventListener('click', function()
+        {
+            FrameLayoutSingleEl.classList.add('d-none');
+            FrameLayoutDoubleEl.classList.add('d-none');
+            FrameLayoutTrippleEl.classList.add('d-none');
+            FrameLayoutQuadEl.classList.remove('d-none');
+        })
+
+        document.addEventListener("drag", function(e) 
+        {
+
+        }, false);
+
+        document.addEventListener("dragstart", function(e) 
+        {            
+            // // store a ref. on the dragged elem
+            draggedElement = e.target;
+            // // make it half transparent
+            //e.target.style.opacity = .5;
+            e.target.style.cursor = 'move';
+        }, false);
+
+        document.addEventListener("dragend", function(e) 
+        {
+            // reset the transparency
+            e.target.style.opacity = "";
+        }, false);
+
+        document.addEventListener("dragover", function(e) 
+        {
+            if(e.target.classList.contains('pane'))
+            {
+                e.target.style.opacity = '0.3';
+                e.target.style.background = '#fff';
+            }
+            // prevent default to allow drop
+            e.preventDefault();
+        }, false);
+
+        document.addEventListener("dragleave", function(e) 
+        {
+            if(e.target.classList.contains('pane'))
+            {
+                e.target.style.opacity = '1';
+                e.target.style.background = '';
+            }
+
+        }, false);
+
+        document.addEventListener("drop", function(e) 
+        {
+            if(e.target.classList.contains('pane'))
+            {
+                e.target.style.opacity = '1';
+                e.target.style.background = '';
+
+                draggedElement.parentNode.removeChild(draggedElement);
+                draggedElement.querySelector('.content').classList.remove('d-none');
+                e.target.appendChild(draggedElement.querySelector('.content'));
+            }
+            e.preventDefault();
+            // move dragged elem to the selected drop target
+            // if (e.target.classlist.contains('frame-position-block')) 
+            // {
+            //     event.target.style.background = "";
+            //     // dragged.parentNode.removeChild(dragged);
+            //     // event.target.appendChild(dragged);
+            // }
+            
+        }, false);
+
+
+
+        //https://jsfiddle.net/radonirinamaminiaina/zfnj5rv4/
+    </script>
+
 
 </body>
 </html>
